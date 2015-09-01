@@ -32,5 +32,15 @@ namespace GreenbPlugin
 
             return bgImage;
         }
+
+        public static Image DrawProductInfo(Image billImage, string drawStr,FontFamily fontfamily, int fontSize, FontStyle fontStyle, Color drawColor, Point drawPoint)
+        {
+            using (Font drawFont = new Font(fontfamily, fontSize, fontStyle))
+            using (Graphics g = Graphics.FromImage(billImage))
+            {
+                g.DrawString(drawStr.Trim(), drawFont, new SolidBrush(drawColor), drawPoint);
+            }
+            return billImage;
+        }
     }
 }
